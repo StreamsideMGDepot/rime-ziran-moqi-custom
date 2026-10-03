@@ -144,13 +144,13 @@ key_binder:
     - { when: has_menu, accept: Shift+Z, send_sequence: "{Shift+Right}z{Shift+Right}" }
 # 启用語言模型
 #__include: moqi:/octagram/enable_for_sentence
-custom_phrase:
-  dictionary: ""
-  user_dict: custom_phrase/custom_phrase_zr
-  db_class: stabledb
-  enable_completion: false
-  enable_sentence: false
-  initial_quality: 100001
+# custom_phrase:
+ # dictionary: ""
+ # user_dict: custom_phrase/custom_phrase_zr
+ # db_class: stabledb
+ # enable_completion: false
+ # enable_sentence: false
+ # initial_quality: 100001 #这个是以简字为主的词库，需要的请自行启用
 
 custom_phrase_3_code:
   dictionary: ""

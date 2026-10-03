@@ -6,7 +6,7 @@
 # ~/.local/share/fcitx5/rime 或者 ~/.config/ibus/rime  (Linux)
 # ~/Library/Rime  (Mac OS)
 # %APPDATA%\Rime  (Windows)
-# 
+# 相比官方版本，关闭了大量词库
 #
 
 ---

@@ -4,10 +4,8 @@
 config_version: '0.50'
 
 schema_list:
-  - schema: moqi_wan_flypymo # 墨奇·小鹤+墨奇形 （推荐）
-  # - schema: moqi_wan_zrm # 墨奇·自然码+自然码部首辅助码
-  # - schema: moqi_wan_flypy # 墨奇·小鹤+鹤形 鹤形+鹤拼, 小鹤官方就只有8000字左右
-  - schema: moqi_single_xh # 墨奇码·顶屏版·小鹤双拼，为了4码自动上屏 只收录了8000字
+  # - schema: moqi_wan_flypymo # 墨奇·小鹤+墨奇形 （推荐）
+  - schema: moqi_wan_zrm_mo # 墨奇·自然码+墨奇形（测试）
 
 
   # - schema: moqi_wan_zrm_hx # 墨奇·自然码+汉心码辅助码
@@ -24,6 +22,7 @@ switcher:
   hotkeys:
     - Control+grave
     - Control+Shift+grave
+    - F4
   save_options:
     - ascii_mode
     - full_shape
@@ -37,10 +36,10 @@ switcher:
   option_list_separator: '／'
 
 menu:
-  page_size: 6 #候选项数
+  page_size: 5 #候选项数
   
 style:
-  horizontal: false #横排为true
+  horizontal: true #横排为true
 
 punctuator:
   full_shape:
@@ -75,8 +74,8 @@ punctuator:
     '=' : ＝
     '[' : [ 「, 【, 〔, ［ ]
     ']' : [ 」, 】, 〕, ］ ]
-    '{' : [ 『, 〖, ｛ ]
-    '}' : [ 』, 〗, ｝ ]
+    '{' : [ 『, 〖 ]
+    '}' : [ 』, 〗 ]
   half_shape:
     ',' : '，'
     '.' : '。'
@@ -86,31 +85,32 @@ punctuator:
     '?' : '？'
     ';' : '；'
     ':' : '：'
-    '''' : { pair: [ '‘', '’' ] }
-    '"' : { pair: [ '“', '”' ] }
-    # '"' : { commit: '“”' } # 直接输出一对引号
+    # '''' : { pair: [ '「', '」' ] }
+    # '"' : { pair: [ '“', '”' ] }
+    '''' : { commit: '「」' } # 直接输出一对引号
+    '"' : { commit: '『』' } # 直接输出一对引号
     '\' : '、'
-    "|": ["·", "|", "｜", "§", "¦"]
-    '`' : '、'
+    "|": ["|", "·", "｜", "§", "¦"]
+    # '`' : '、'
     '~' : '~'
     '!' : '！'
     '@' : '@'
     '#' : '#'
     '%' : '%'
     '$' : '¥'
-    '^' : '……'
+    # '^' : '……'
     '&' : '&'
     '*' : '*'
     '(' : '（'
     ')' : '）'
     '-' : '-'
-    '_' : ——
+    # '_' : ——
     '+' : '+'
     '=' : '='
     '[' : '【'
     ']' : '】'
-    '{' : '「'
-    '}' : '」'
+    '{' : '｛'
+    '}' : '｝'
 
 key_binder:
   bindings:
@@ -126,16 +126,16 @@ key_binder:
     - { when: composing, accept: Alt+Right, send: Shift+Right }
 
     # 翻页 - =
-    - { when: has_menu, accept: minus, send: Page_Up }
-    - { when: has_menu, accept: equal, send: Page_Down }
+    # - { when: has_menu, accept: minus, send: Page_Up }
+    # - { when: has_menu, accept: equal, send: Page_Down }
 
     # 翻页 , .
     # - { when: paging, accept: comma, send: Page_Up }
     # - { when: has_menu, accept: period, send: Page_Down }
 
     # 翻页 [ ]
-    # - { when: paging, accept: bracketleft, send: Page_Up }
-    # - { when: has_menu, accept: bracketright, send: Page_Down }
+    - { when: paging, accept: bracketleft, send: Page_Up }
+    - { when: has_menu, accept: bracketright, send: Page_Down }
 
     # 两种按键配置，鼠须管 Control+Shift+4 生效，小狼毫 Control+Shift+dollar 生效，都写上了。
     # numbered_mode_switch:
